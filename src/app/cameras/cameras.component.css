@@ -17,10 +17,3 @@ h2 {
     display: flex;
     justify-content: center;
 }
-
-.container {
-    width: 120vh;
-    height: 100vh;
-    position: relative;
-    border: 1px solid black;
-}

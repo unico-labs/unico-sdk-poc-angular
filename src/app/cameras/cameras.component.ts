@@ -89,7 +89,7 @@ export class CamerasComponent implements OnInit {
 
   cameraDocument(): void {
     const cameraPromised = this.unicoBuilder
-      .prepareDocumentCamera(this.pathUnicoConfigLiveness, DocumentCameraTypes.CNH)
+      .prepareDocumentCamera(this.pathUnicoConfigDefault, DocumentCameraTypes.CNH)
       .catch(()=>console.error('Error initializing liveness camera'));
     
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
