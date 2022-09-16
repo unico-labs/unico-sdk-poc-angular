@@ -4052,9 +4052,9 @@ jest-worker@^27.4.5:
     supports-color "^8.0.0"
 
 jose-browser-runtime@^3.20.2:
-  version "3.20.3"
-  resolved "https://registry.yarnpkg.com/jose-browser-runtime/-/jose-browser-runtime-3.20.3.tgz#7524109db1f17ab9b7fdb3f77d497c4dee8d747d"
-  integrity sha512-Ni15mtEg0JB2fWQ0HqrW4hT9ThIEwROxDjHHGpTEDiap4SN8TXyoBIO2ie3HXVWiYQXOwRIvLBPsSjjJpvxhsQ==
+  version "3.20.4"
+  resolved "https://registry.yarnpkg.com/jose-browser-runtime/-/jose-browser-runtime-3.20.4.tgz#51875869056981d8409a60a16dd518188bb83981"
+  integrity sha512-S6GqLiueUbvyF4aaAQU0v+QAE+1BHmo5Tmsurj1IOXpPyhsTRd6GK2/jxL2OnsniGx6wWSOLnFACwmWNlyQ7CQ==
 
 js-tokens@^4.0.0:
   version "4.0.0"
@@ -6302,10 +6302,10 @@ unbox-primitive@^1.0.2:
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
 
-unico-webframe@^3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/unico-webframe/-/unico-webframe-3.5.2.tgz#41096a01dad368de85774dae87765bf95b1f95c0"
-  integrity sha512-OmZ2Nq7fFQ7luqSnwFjz1Y6CyNDU6lgX2VpzYASiQ27fgGFi6JK+8acbZtnC9qDQp+GL3AIe0NweGukH6LjPHQ==
+unico-webframe@^3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/unico-webframe/-/unico-webframe-3.5.3.tgz#db28fd1df7de3ec1c15533441bdc12923d8c689b"
+  integrity sha512-Augt3xTlLyMXqsFetWrVGfKKUj8J2jSpYgBrEODNve1BGGHIQvvhgEYzzad67VnxdXyqATQ/jCAd1l8DSzv7Mw==
   dependencies:
     crypto-es "^1.2.7"
     devtools-detector "^2.0.6"
