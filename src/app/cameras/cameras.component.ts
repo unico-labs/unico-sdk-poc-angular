@@ -47,8 +47,7 @@ export class CamerasComponent implements OnInit {
       on: {
         success: (obj: any) => {
           console.log('successMessage');
-          console.log(obj.base64);
-          console.log(obj.encrypted);        
+          console.log(obj);
         },
         error: (error: any) => {
           console.log('errorMessage');
@@ -90,6 +89,22 @@ export class CamerasComponent implements OnInit {
   cameraDocument(): void {
     const cameraPromised = this.unicoBuilder
       .prepareDocumentCamera(this.pathUnicoConfigDefault, DocumentCameraTypes.CNH)
+      .catch(()=>console.error('Error initializing liveness camera'));
+    
+    cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
+  }
+
+  cameraDocumentCNHFront(): void {
+    const cameraPromised = this.unicoBuilder
+      .prepareDocumentCamera(this.pathUnicoConfigDefault, DocumentCameraTypes.CNH_FRENTE)
+      .catch(()=>console.error('Error initializing liveness camera'));
+    
+    cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
+  }
+
+  cameraDocumentCNHBack(): void {
+    const cameraPromised = this.unicoBuilder
+      .prepareDocumentCamera(this.pathUnicoConfigDefault, DocumentCameraTypes.CNH_VERSO)
       .catch(()=>console.error('Error initializing liveness camera'));
     
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
