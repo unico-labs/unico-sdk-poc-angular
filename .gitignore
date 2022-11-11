@@ -10,6 +10,8 @@
 /node_modules
 npm-debug.log
 yarn-error.log
+yarn.lock
+package-lock.json
 
 # IDEs and editors
 .idea/
@@ -42,7 +44,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-
-# Unico Credentials
-/src/assets/unicoConfigDefault.json
-/src/assets/unicoConfigLiveness.json
