@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UnicoCheckBuilder, SelfieCameraTypes, UnicoThemeBuilder, DocumentCameraTypes } from 'unico-webframe';
+import { DocumentCameraTypes, SelfieCameraTypes, UnicoCheckBuilder, UnicoThemeBuilder } from 'unico-webframe';
 
 @Component({
   selector: 'app-cameras',
