@@ -22,7 +22,7 @@ O componente de captura do SDK Web é compatível com as seguintes versões mín
 
 - **Android:** 5.0 (API 21);
 - **iOS:** 11;
-- **React:** Versão 16 ou superior (recomendado).
+- **Angular:** Versão 18 (recomendado).
 
 ### 📱 Dispositivos Compatíveis
 
@@ -83,13 +83,7 @@ Para iniciar, siga os 3 passos abaixo:
    ```javascript
    unicoCameraBuilder.setResourceDirectory("/resources");
    ```
-
-3. **Configure o caminho dos modelos de IA (caso use a funcionalidade de Câmera Inteligente):**
-
-   ```javascript
-   unicoCameraBuilder.setModelsPath("https://meusite.com.br/models");
-   ```
-
+   
 ---
 
 ## 🌐 Configuração de Ambientes
@@ -175,17 +169,22 @@ Para iniciar a câmera com as configurações realizadas, siga os passos abaixo:
 
    Para a captura inteligente, lembre-se de carregar os modelos de visão computacional com o método `setModelsPath`, conforme explicado anteriormente.
 
-   Exemplo utilizando a classe `UnicoConfig`:
+Exemplo utilizando a classe `UnicoConfig`:
 
    ```javascript
-   import { UnicoConfig } from "unico-webframe"
+   const config = new UnicoConfig()
+     .setHostname("<YOUR_HOSTNAME>")
+     .setHostKey("<YOUR_HOST_KEY>");
 
-    const config = new UnicoConfig()
-    .setProjectNumber("<YOUR_PROJECT_NUMBER>")
-    .setProjectId("<YOUR_PROJECT_ID>")
-    .setMobileSdkAppId("<YOUR_MOBILE_SDK_APP_ID>")
-    .setHostname("<YOUR_HOSTNAME>")
-    .setHostInfo("<YOUR_HOST_INFO>")
+   unicoCamera.prepareSelfieCamera(
+     config, 
+     SelfieCameraTypes.SMART
+   ).then(cameraOpener => {
+     cameraOpener.open(callback);
+   }).catch(error => {
+     console.error(error);
+     // confira na aba "Referências" sobre os erros possíveis
+   });
    ```
 
 ---
