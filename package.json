@@ -20,7 +20,7 @@
     "@angular/router": "^18.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "unico-webframe": "3.19.3",
+    "unico-webframe": "3.20.0",
     "util": "^0.12.4",
     "zone.js": "~0.14.10"
   },

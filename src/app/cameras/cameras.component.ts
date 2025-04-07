@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DocumentCameraTypes, SelfieCameraTypes, UnicoCheckBuilder, UnicoThemeBuilder } from 'unico-webframe';
+import { DocumentCameraTypes, SelfieCameraTypes, UnicoCheckBuilder, UnicoThemeBuilder, SDKEnvironmentTypes, UnicoConfig } from 'unico-webframe';
 
 @Component({
   selector: 'app-cameras',
@@ -11,12 +11,15 @@ export class CamerasComponent implements OnInit {
   pathResources: string = '/assets/resources';
   pathModels: string = '/assets/models';
   pathUnicoConfigDefault: string = '/assets/unicoConfigDefault.json';
-  pathUnicoConfigLiveness: string = '/assets/unicoConfigLiveness.json';
+  pathUnicoConfigLiveness: string = '/assets/unicoConfig';
+
+  config: object = new UnicoConfig()
+  .setHostname("YOUR_HOSTNAME")
+  .setHostKey("YOUR_SDKKEY");
 
   unicoBuilder: any = null;
   unicoTheme: any = null;
   callback: any;
-
 
   constructor() { }
 
@@ -36,11 +39,17 @@ export class CamerasComponent implements OnInit {
       .setHtmlPopupLoading(`<div style="position: absolute; top: 45%; right: 50%; transform: translate(50%, -50%); z-index: 10; text-align: center;">Carregandooooo...</div>`)
       .build();
 
+      const config = new UnicoConfig()
+  
+      .setHostname("<YOUR_HOSTNAME>")
+    
+      .setHostKey("<YOUR_SDKKEY>");
 
     this.unicoBuilder = new UnicoCheckBuilder()
       .setTheme(this.unicoTheme)
       .setModelsPath(this.pathModels)
       .setResourceDirectory(this.pathResources)
+      .setEnvironment(SDKEnvironmentTypes.UAT)
       .build();
 
     this.callback = {
@@ -64,7 +73,7 @@ export class CamerasComponent implements OnInit {
 
   cameraManual(): void {
     const cameraPromised = this.unicoBuilder
-      .prepareSelfieCamera(this.pathUnicoConfigDefault, SelfieCameraTypes.NORMAL)
+      .prepareSelfieCamera(this.config, SelfieCameraTypes.NORMAL)
       .catch(()=>console.error('Error initializing default camera'));
     
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
@@ -72,7 +81,7 @@ export class CamerasComponent implements OnInit {
 
   cameraSmart(): void {
     const cameraPromised = this.unicoBuilder
-      .prepareSelfieCamera(this.pathUnicoConfigDefault, SelfieCameraTypes.SMART)
+      .prepareSelfieCamera(this.config, SelfieCameraTypes.SMART)
       .catch(()=>console.error('Error initializing smart camera'));
     
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
@@ -80,7 +89,7 @@ export class CamerasComponent implements OnInit {
 
   cameraLiveness(): void {
     const cameraPromised = this.unicoBuilder
-      .prepareSelfieCamera(this.pathUnicoConfigLiveness, SelfieCameraTypes.SMART)
+      .prepareSelfieCamera(this.config, SelfieCameraTypes.SMART)
       .catch(()=>console.error('Error initializing liveness camera'));
     
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
