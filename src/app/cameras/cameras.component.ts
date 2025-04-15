@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DocumentCameraTypes, SelfieCameraTypes, UnicoCheckBuilder, UnicoThemeBuilder, SDKEnvironmentTypes, UnicoConfig } from 'unico-webframe';
 
 @Component({
-  selector: 'app-cameras',
-  templateUrl: './cameras.component.html',
-  styleUrls: ['./cameras.component.css']
+    selector: 'app-cameras',
+    templateUrl: './cameras.component.html',
+    styleUrls: ['./cameras.component.css'],
+    standalone: false
 })
 export class CamerasComponent implements OnInit {
 
