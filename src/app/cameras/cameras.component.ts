@@ -14,9 +14,9 @@ export class CamerasComponent implements OnInit {
   pathUnicoConfigDefault: string = '/assets/unicoConfigDefault.json';
   pathUnicoConfigLiveness: string = '/assets/unicoConfig';
 
-  config: object = new UnicoConfig()
-  .setHostname("YOUR_HOSTNAME")
-  .setHostKey("YOUR_SDKKEY");
+  config = new UnicoConfig()
+    .setHostname("YOUR_HOSTNAME")
+    .setHostKey("YOUR_HOST_KEY");
 
   unicoBuilder: any = null;
   unicoTheme: any = null;
@@ -39,12 +39,6 @@ export class CamerasComponent implements OnInit {
       .setColorTextBoxMessage("#000")
       .setHtmlPopupLoading(`<div style="position: absolute; top: 45%; right: 50%; transform: translate(50%, -50%); z-index: 10; text-align: center;">Carregandooooo...</div>`)
       .build();
-
-      const config = new UnicoConfig()
-  
-      .setHostname("<YOUR_HOSTNAME>")
-    
-      .setHostKey("<YOUR_SDKKEY>");
 
     this.unicoBuilder = new UnicoCheckBuilder()
       .setTheme(this.unicoTheme)
@@ -88,17 +82,20 @@ export class CamerasComponent implements OnInit {
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
   }
 
+
   cameraLiveness(): void {
     const cameraPromised = this.unicoBuilder
       .prepareSelfieCamera(this.config, SelfieCameraTypes.SMART)
-      .catch(()=>console.error('Error initializing liveness camera'));
-    
-    cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
-  }
+      .catch(() => console.error('Error initializing liveness camera'));
+
+    cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
+        cameraOpener.open(this.callback);
+    });
+}
 
   cameraDocument(): void {
     const cameraPromised = this.unicoBuilder
-      .prepareDocumentCamera(this.pathUnicoConfigDefault, DocumentCameraTypes.CNH)
+      .prepareDocumentCamera(this.config, DocumentCameraTypes.CNH)
       .catch(()=>console.error('Error initializing liveness camera'));
     
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
@@ -106,7 +103,7 @@ export class CamerasComponent implements OnInit {
 
   cameraDocumentCNHFront(): void {
     const cameraPromised = this.unicoBuilder
-      .prepareDocumentCamera(this.pathUnicoConfigDefault, DocumentCameraTypes.CNH_FRENTE)
+      .prepareDocumentCamera(this.config, DocumentCameraTypes.CNH_FRENTE)
       .catch(()=>console.error('Error initializing liveness camera'));
     
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
@@ -114,7 +111,7 @@ export class CamerasComponent implements OnInit {
 
   cameraDocumentCNHBack(): void {
     const cameraPromised = this.unicoBuilder
-      .prepareDocumentCamera(this.pathUnicoConfigDefault, DocumentCameraTypes.CNH_VERSO)
+      .prepareDocumentCamera(this.config, DocumentCameraTypes.CNH_VERSO)
       .catch(()=>console.error('Error initializing liveness camera'));
     
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => cameraOpener.open(this.callback));
