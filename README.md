@@ -22,7 +22,10 @@ O componente de captura do SDK Web é compatível com as seguintes versões mín
 
 - **Android:** 5.0 (API 21);
 - **iOS:** 11;
-- **Angular:** Versão 19.2.7
+
+O componente de captura do SDK Web é compatível com as seguintes versões mínimas do Angular:
+
+- **Angular:** Versão 18.0.0
 
 ### 📱 Dispositivos Compatíveis
 
