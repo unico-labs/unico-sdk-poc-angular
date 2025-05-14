@@ -1,12 +1,71 @@
-<h2>Cameras</h2>
-<div class="buttons-container">
-    <button (click)="cameraManual()">Camera Manual</button>
-    <button (click)="cameraSmart()">Camera Smart</button>
-    <button (click)="cameraLiveness()">Camera Liveness</button>
-    <button (click)="cameraDocumentCNHFront()">Camera CNH Front</button>
-    <button (click)="cameraDocumentCNHBack()">Camera CNH Back</button>
+<div class="cameras-container">
+  <div class="section-header">
+    <h2>POC SDK Unico Angular</h2>
+    <p>Select a camera type to capture identity verification</p>
+  </div>
+
+  <div class="status-message" *ngIf="statusMessage" [ngClass]="statusType">
+    {{ statusMessage }}
+  </div>
+
+  <div class="camera-options">
+    <div class="option-group">
+      <h3>Selfie Options</h3>
+      <div class="buttons-row">
+        <button (click)="cameraLiveness()" class="btn btn-primary">
+          <span class="icon">🔍</span>
+          Liveness Check
+        </button>
+      </div>
+    </div>
+
+    <div class="option-group">
+      <h3>Document Options</h3>
+      <div class="buttons-row">
+        <button (click)="cameraDocument()" class="btn btn-secondary">
+          <span class="icon">📄</span>
+          CNH (Aberta)
+        </button>
+        <button (click)="cameraDocumentCNHFront()" class="btn btn-secondary">
+          <span class="icon">📄</span>
+          CNH (Frente)
+        </button>
+        <button (click)="cameraDocumentCNHBack()" class="btn btn-secondary">
+          <span class="icon">📄</span>
+          CNH (Trasera)
+        </button>
+      </div>
+      <div class="buttons-row mt-3">
+        <button (click)="cameraCPF()" class="btn btn-secondary">
+          <span class="icon">📄</span>
+          CPF
+        </button>
+        <button (click)="cameraRGFront()" class="btn btn-secondary">
+          <span class="icon">📄</span>
+          RG (Frente)
+        </button>
+        <button (click)="cameraRGBack()" class="btn btn-secondary">
+          <span class="icon">📄</span>
+          RG (Trasera)
+        </button>
+      </div>
+      <div class="buttons-row mt-3">
+        <button (click)="cameraRGFrontNew()" class="btn btn-secondary">
+          <span class="icon">📄</span>
+          RG Novo (Frente)
+        </button>
+        <button (click)="cameraRGBackNew()" class="btn btn-secondary">
+          <span class="icon">📄</span>
+          RG Novo (Trasera)
+        </button>
+        <button (click)="cameraOthers()" class="btn btn-secondary">
+          <span class="icon">📄</span>
+          Outros Documentos
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="container">
-    <div id="box-camera"></div>
+  <div id="box-camera"></div>
 </div>
-
