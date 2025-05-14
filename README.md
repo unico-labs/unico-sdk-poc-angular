@@ -25,7 +25,7 @@ O componente de captura do SDK Web é compatível com as seguintes versões mín
 
 O componente de captura do SDK Web é compatível com as seguintes versões mínimas do Angular:
 
-- **Angular:** Versão 18.0.0
+- **Angular:** a partir da versão 2 em diante foi projetado para usar ECMAScript 6 (ES6) — também conhecido como ECMAScript 2015 — no qual a SDK Unico utiliza como base. Qualquer versão de framework que tenha como base o ES6 vai funcionar com a SDK Unico.
 
 ### 📱 Dispositivos Compatíveis
 
