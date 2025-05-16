@@ -10,10 +10,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* ou a altura desejada */
-  width: 100vw;  /* ou a largura desejada */
+  height: 100vh;
+  width: 100vw;
 }
-
 
 div#box-camera {
   width: 100%;
@@ -59,12 +58,14 @@ div#box-camera {
   margin-bottom: 16px;
   border-bottom: 1px solid #e2e8f0;
   padding-bottom: 8px;
+  text-align: center;
 }
 
 .buttons-row {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
 }
 
 .btn {
@@ -79,8 +80,9 @@ div#box-camera {
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  min-width: 120px;
+  min-width: 180px;
   flex: 1;
+  max-width: 300px;
 }
 
 .btn .icon {
@@ -91,12 +93,10 @@ div#box-camera {
 .btn-primary {
   background-color: #0384fc;
   color: #dff1f5;
-}
-
-.btn-primary:hover {
-  background-color: #0369c8;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(3, 132, 252, 0.3);
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  max-width: 50%;
 }
 
 .btn-secondary {
@@ -181,23 +181,24 @@ div#box-camera {
   }
 }
 
-/* Responsive Design */
 @media (min-width: 768px) {
   .option-group {
     padding: 24px;
   }
   
   .btn {
-    min-width: 140px;
+    min-width: 210px;
   }
 }
 
 @media (max-width: 600px) {
   .buttons-row {
     flex-direction: column;
+    align-items: center;
   }
   
   .btn {
     width: 100%;
+    max-width: 675px;
   }
 }

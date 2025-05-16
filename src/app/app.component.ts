@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CamerasComponent } from './cameras/cameras.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CamerasComponent],
+  imports: [RouterModule],
   template: `
     <div class="app-container">
       <header class="app-header">
@@ -41,12 +41,14 @@ import { CamerasComponent } from './cameras/cameras.component';
 </defs>
 </svg>
           </div>
-          <div class="header-text">
-          </div>
+          <nav class="nav-links">
+            <a routerLink="/" class="nav-link">Home</a>
+            <a routerLink="/capture" class="nav-link">Capture</a>
+          </nav>
         </div>
       </header>
       <main>
-        <app-cameras></app-cameras>
+        <router-outlet></router-outlet>
       </main>
     </div>
   `,
@@ -60,6 +62,9 @@ import { CamerasComponent } from './cameras/cameras.component';
       background-color: #ffffff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .header-content {
@@ -67,49 +72,40 @@ import { CamerasComponent } from './cameras/cameras.component';
       margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 2rem;
+      justify-content: space-between;
     }
 
     .logo-container {
       flex-shrink: 0;
     }
 
-    .logo {
-      width: 60px;
-      height: 60px;
-      object-fit: cover;
-      border-radius: 8px;
+    .nav-links {
+      display: flex;
+      gap: 2rem;
     }
 
-    .header-text {
-      flex-grow: 1;
+    .nav-link {
+      color: #334155;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.2s ease-in-out;
     }
-    
-    .app-header h1 {
-      font-size: 2.0rem;
-      margin: 0;
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
       color: #0384fc;
-    }
-    
-    .app-header p {
-      font-size: 1.2rem;
-      color: #666;
-      margin: 0.5rem 0 0 0;
     }
 
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
-        text-align: center;
         gap: 1rem;
       }
 
-      .app-header h1 {
-        font-size: 2rem;
-      }
-
-      .app-header p {
-        font-size: 1rem;
+      .nav-links {
+        margin-top: 1rem;
       }
     }
   `]
