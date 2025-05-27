@@ -31,7 +31,7 @@ export class CamerasComponent implements OnInit {
   unicoBuilder: any = null;
   unicoTheme: any = null;
   callback: any;
-  
+
   // Status messages
   statusMessage: string = '';
   statusType: 'success' | 'error' | 'info' | 'none' = 'none';
@@ -65,7 +65,8 @@ export class CamerasComponent implements OnInit {
     this.unicoBuilder = new UnicoCheckBuilder()
       .setTheme(this.unicoTheme)
       .setModelsPath(this.pathModels)
-      .setResourceDirectory(this.pathResources)
+      // .setResourceDirectory(this.pathResources) /*-- A partir da versão 3.18.0, o SDK busca os recursos adicionais automaticamente se o método setResourceDirectory não for usado e as configurações de CSP estiverem corretas. --/*
+
       .setEnvironment(SDKEnvironmentTypes.UAT)
       .build();
   }
@@ -92,7 +93,7 @@ export class CamerasComponent implements OnInit {
   private setStatus(message: string, type: 'success' | 'error' | 'info' | 'none'): void {
     this.statusMessage = message;
     this.statusType = type;
-    
+
     setTimeout(() => {
       this.statusMessage = '';
       this.statusType = 'none';
@@ -107,7 +108,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing liveness camera:', error);
         this.setStatus('Failed to initialize liveness camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
@@ -123,7 +124,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing document camera:', error);
         this.setStatus('Failed to initialize document camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
@@ -139,7 +140,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing CNH front camera:', error);
         this.setStatus('Failed to initialize CNH front camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
@@ -155,7 +156,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing CNH back camera:', error);
         this.setStatus('Failed to initialize CNH back camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
@@ -171,7 +172,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing CPF camera:', error);
         this.setStatus('Failed to initialize CPF camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
@@ -187,7 +188,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing RG front camera:', error);
         this.setStatus('Failed to initialize RG front camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
@@ -203,7 +204,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing RG back camera:', error);
         this.setStatus('Failed to initialize RG back camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
@@ -219,7 +220,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing new RG front camera:', error);
         this.setStatus('Failed to initialize new RG front camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
@@ -235,7 +236,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing new RG back camera:', error);
         this.setStatus('Failed to initialize new RG back camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
@@ -251,7 +252,7 @@ export class CamerasComponent implements OnInit {
         console.error('Error initializing other documents camera:', error);
         this.setStatus('Failed to initialize other documents camera.', 'error');
       });
-    
+
     cameraPromised.then((cameraOpener: { open: (arg0: object) => any; }) => {
       if (cameraOpener) {
         cameraOpener.open(this.callback);
